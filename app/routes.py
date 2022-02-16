@@ -6,7 +6,12 @@ def index():
     my_name = "Juan"
     my_hometown = "Houston"
     colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
-    return render_template('index.html', name=my_name, city=my_hometown, colors=colors)
+    person = {
+        'name': 'Jack Man',
+        'age': 18,
+        'best_friend': 'Bob Fuller'
+    }
+    return render_template('index.html', name=my_name, city=my_hometown, colors=colors, person=person)
 
 
 @app.route('/name')
