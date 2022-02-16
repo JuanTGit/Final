@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template
+from app.forms import RegisterForm
 
 @app.route('/')
 def index():
@@ -23,3 +24,13 @@ def name():
 @app.route("/test")
 def test():
     return "<h1>This is a test!</h1>"
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegisterForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        email = form.email.data
+        password = form.password.data
+        print(username, email, password)
+    return render_template('register.html', form=form)
