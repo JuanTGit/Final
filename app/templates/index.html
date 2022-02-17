@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
     <h1>Hello {{name}} from the render template! I'm from {{city}}!</h1>
     <p>My favorite colors are:</p>
     <ul>
@@ -13,4 +14,5 @@
         {% endfor %}
     </ul>
     <h4>Hello my name is {{ person['name'] }} and my best friend is {{ person['best_friend'] }} </h4>
+</div>
 {% endblock %}
