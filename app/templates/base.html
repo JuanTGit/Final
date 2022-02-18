@@ -8,16 +8,20 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-        <title>{% block title %} Juan's Project {% endblock %}</title>
+        <script src="../static/main.js" defer></script>
+        <title>{% block title %} Juan's Weather App {% endblock %}</title>
     </head>
     <body>
         
         {% include "nav.html" %}
 
             <div class="">
+                <section class="bg-image vh-100" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');">
+                {% include 'message.html' %}
                 {% block content %}
 
                 {% endblock %}
+                </section>
             </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>

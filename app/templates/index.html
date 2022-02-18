@@ -1,11 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container text-center">
 {% if current_user.is_authenticated %}
-    <h1>Welcome back, {{ current_user.username }}</h1>
+    <h1>Welcome, Here's the weather forecast {{ current_user.username }}</h1>
 {% else %}
-    <h1>Welcome to Juan's store! Be sure to register or login above!</h1>
+    <h1>Welcome to your local weather forecast!</h1>
+    <h2>Be sure to register or login above!</h2>
 {% endif %}
 </div>
+{% if current_user.is_authenticated %}
+<section class="h-50">
+    <div class="container text-center py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6 col-xl-4">
+                <form action="" id='weather' class="input-group rounded mb-3">
+                    <input type="text" class="form-control rounded" placeholder="Zipcode" id="zip"/>
+                    <input type="submit" value="search" class="btn btn-primary">
+                </form>
+                <div class="card">
+                    <h4 class="ml-auto mr-4 mt-3 mb-0" id="card"></h4>
+                    <img src="" alt="" class="card-img-top w-25 mx-auto" id="card-img">
+                    <h1 class="ml-auto mr-4 large-font" id="High"></h1>
+                    <h1 class="ml-auto mr-4 large-font" id="Low"></h1>
+                    <h1 class="ml-auto mr-4 large-font" id="Humidity"></h1>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% else %}
+<section class="h-50">
+    <div class="container text-center py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6 col-xl-4">
+                <form action="" id='weather' class="input-group rounded mb-3">
+                    <input type="text" class="form-control rounded" placeholder="Zipcode" id="zip"/>
+                    <input type="submit" value="search" class="btn btn-primary">
+                </form>
+                <div class="card">
+                    <h3>Oops looks like you're not logged in!</h3>
+                    <p class="text-center text-muted mt-5 mb-0"> <a href="{{ url_for('login') }}" class="fw-bold text-body"><u>Login here</u></a></p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
 {% endblock %}
