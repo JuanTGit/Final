@@ -2,17 +2,10 @@
 
 {% block content %}
 <div class="container">
-    <h1>Hello {{name}} from the render template! I'm from {{city}}!</h1>
-    <p>My favorite colors are:</p>
-    <ul>
-        {% for c in colors %}
-            {% if c=="blue" %}
-            <li> {{c.upper()}} </li>
-            {% else %}
-            <li> {{c}} </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    <h4>Hello my name is {{ person['name'] }} and my best friend is {{ person['best_friend'] }} </h4>
+{% if current_user.is_authenticated %}
+    <h1>Welcome back, {{ current_user.username }}</h1>
+{% else %}
+    <h1>Welcome to Juan's store! Be sure to register or login above!</h1>
+{% endif %}
 </div>
 {% endblock %}

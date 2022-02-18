@@ -10,12 +10,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('index') }}">Home</a>
                 </li>
+                {% if cuttent_user.is_anonymous %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('register') }}">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                 </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>
